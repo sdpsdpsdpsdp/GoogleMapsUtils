@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.sdpsdpsdpsdp'
+dependencies {
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
+}
+
+android {
+    compileSdkVersion 24
+
+    buildToolsVersion '26.0.2'
+
+
+    defaultConfig {
+        minSdkVersion 14
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+
+        androidTest {
+            java.srcDirs = ['tests/src']
+        }
+    }
+}
+
