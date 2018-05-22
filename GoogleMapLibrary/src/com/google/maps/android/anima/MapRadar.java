@@ -65,7 +65,7 @@ public class MapRadar {
 
     public MapRadar(GoogleMap googleMap, LatLng latLng, Context context) {
         this.googleMap = googleMap;
-        latLng = new LatLng(latLng.latitude + 0.00004, latLng.longitude + 0.00008);//纠正偏差
+        latLng = new LatLng(latLng.latitude , latLng.longitude );//纠正偏差
         this.latLng = latLng;
         this.prevlatlng = latLng;
         outerDrawable = (GradientDrawable) context.getResources().getDrawable(R.drawable.google_map_background);
