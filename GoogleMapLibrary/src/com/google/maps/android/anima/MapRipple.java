@@ -49,7 +49,7 @@ public class MapRipple {
     private int numberOfRipples = 1;                      //number of ripples to show, max = 4
     private int fillColor = Color.TRANSPARENT;           //fillcolor of circle
     private int strokeColor = Color.BLACK;               //border color of circle
-    private int strokewidth = 10;                          //border width of circle
+    private int strokeWidth = 10;                          //border width of circle
     private long durationBetweenTwoRipples = 4000;      //in microseconds.
     private long rippleDuration = 12000;                //in microseconds
     private ValueAnimator vAnimators[];
@@ -74,7 +74,7 @@ public class MapRipple {
 
 
     public void withDistance(double distance) {
-        if (distance < 200)
+        if (distance < 1)
             distance = 200;
         this.distance = distance;
     }
@@ -87,7 +87,7 @@ public class MapRipple {
 
 
     public void withNumberOfRipples(int numberOfRipples) {
-        if (numberOfRipples > 4 || numberOfRipples < 1)
+        if (numberOfRipples >4 || numberOfRipples < 1)
             numberOfRipples = 4;
         this.numberOfRipples = numberOfRipples;
     }
@@ -103,8 +103,8 @@ public class MapRipple {
     }
 
 
-    public void withStrokewidth(int strokewidth) {
-        this.strokewidth = strokewidth;
+    public void withStrokeWidth(int strokeWidth) {
+        this.strokeWidth = strokeWidth;
     }
 
 
@@ -200,7 +200,7 @@ public class MapRipple {
     private void setDrawableAndBitmap() {
         drawable.setColor(fillColor);
         float d = Resources.getSystem().getDisplayMetrics().density;
-        int width = (int) (strokewidth * d); // margin in pixels
+        int width = (int) (strokeWidth * d); // margin in pixels
         drawable.setStroke(width, strokeColor);
         backgroundImage = drawableToBitmap(drawable);
     }
