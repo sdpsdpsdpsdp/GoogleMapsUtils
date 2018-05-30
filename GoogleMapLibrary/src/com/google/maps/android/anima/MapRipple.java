@@ -74,7 +74,7 @@ public class MapRipple {
 
 
     public void withDistance(double distance) {
-        if (distance < 1)
+        if (distance < 10)
             distance = 200;
         this.distance = distance;
     }
