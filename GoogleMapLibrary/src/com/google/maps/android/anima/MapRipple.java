@@ -15,7 +15,6 @@
  */
 
 
-
 package com.google.maps.android.anima;
 
 import android.animation.IntEvaluator;
@@ -87,7 +86,7 @@ public class MapRipple {
 
 
     public void withNumberOfRipples(int numberOfRipples) {
-        if (numberOfRipples >4 || numberOfRipples < 1)
+        if (numberOfRipples > 4 || numberOfRipples < 1)
             numberOfRipples = 4;
         this.numberOfRipples = numberOfRipples;
     }
@@ -175,6 +174,7 @@ public class MapRipple {
     };
 
     private void OverLay(final int i) {
+        if (vAnimators == null) return;
         vAnimators[i] = ValueAnimator.ofInt(0, (int) distance);
         vAnimators[i].setRepeatCount(ValueAnimator.INFINITE);
         vAnimators[i].setRepeatMode(ValueAnimator.RESTART);
@@ -228,6 +228,7 @@ public class MapRipple {
     }
 
     public void stopRippleMapAnimation() {
+        if (handlers == null || vAnimators == null || gOverlays == null) return;
         if (isAnimationRunning) {
             try {
                 for (int i = 0; i < numberOfRipples; i++) {
