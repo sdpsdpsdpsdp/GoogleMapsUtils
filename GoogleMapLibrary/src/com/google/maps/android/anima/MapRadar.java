@@ -65,7 +65,7 @@ public class MapRadar {
 
     public MapRadar(GoogleMap googleMap, LatLng latLng, Context context) {
         this.googleMap = googleMap;
-        latLng = new LatLng(latLng.latitude , latLng.longitude );//纠正偏差
+        latLng = new LatLng(latLng.latitude, latLng.longitude);//纠正偏差
         this.latLng = latLng;
         this.prevlatlng = latLng;
         outerDrawable = (GradientDrawable) context.getResources().getDrawable(R.drawable.google_map_background);
@@ -242,11 +242,16 @@ public class MapRadar {
 
     public void stopRadarAnimation() {
         if (isAnimationRunning) {
-            sweepHandler.removeCallbacks(sweepRunnable);
-            vAnimatorSweep.cancel();
-            gOverlaySweep.remove();
-            outerHandler.removeCallbacks(runnable);
-            gOverlay.remove();
+            if (sweepHandler != null)
+                sweepHandler.removeCallbacks(sweepRunnable);
+            if (vAnimatorSweep != null)
+                vAnimatorSweep.cancel();
+            if (gOverlaySweep != null)
+                gOverlaySweep.remove();
+            if (outerHandler != null)
+                outerHandler.removeCallbacks(runnable);
+            if (gOverlay != null)
+                gOverlay.remove();
         }
         isAnimationRunning = false;
     }
