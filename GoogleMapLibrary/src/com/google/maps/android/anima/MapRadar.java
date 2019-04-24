@@ -192,7 +192,7 @@ public class MapRadar {
     }
 
     private void setDrawableAndBitmap() {
-
+        if (outerDrawable == null) return;
         outerDrawable.setColor(fillColor);
         float d = Resources.getSystem().getDisplayMetrics().density;
         int width = (int) (strokewidth * d); // margin in pixels
